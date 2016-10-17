@@ -1,14 +1,39 @@
-Regex, ou expressıes regulares, È uma linguagem para encontrar padrıes de texto.
+Regex, ou express√µes regulares, √© uma linguagem para encontrar padr√µes de texto.
 Sendo uma linguagem independente, existem interpretadores para a maioria das plataformas de desenvolvimento, como JavaScript, C#, Python ou Ruby.
-Uma classe de caracteres predefinida È \d, que significa qualquer dÌgito.
-Existem v·rios meta-char, como . ou *.
+Uma classe de caracteres predefinida √© \d, que significa qualquer d√≠gito.
+Existem v√°rios meta-char, como . ou *.
 Existem quantifiers que definem quantas vezes um caractere deve aparecer:
-{1} È um quantifier que significa uma vez.
-* È um quantifier que significa zero, uma ou mais vezes
-. È um meta-char que significa qualquer char.
+{1} √© um quantifier que significa uma vez.
+* √© um quantifier que significa zero, uma ou mais vezes
+. √© um meta-char que significa qualquer char.
 Com \ podemos escapar meta-chars, por exemplo \..
 
 --------------------------------------------------
+
+Classes:
+[A-Z] - letras de A a Z
+[123] - 1, 2 ou 3
+\d - todos os d√≠gitos
+\s - whitespace, √© um atalho para [ \t\r\n\f].
+\w - word char, √© uma atalho para [A-Za-z0-9_].
+
+Quantifiers:
+? - zero ou uma vez;
+* - zero ou mais vezes;
++ - uma ou mais vezes;
+{n} - exatamente n vezes;
+{n,} - no m√≠nimo n vezes;
+{n,m} - no m√≠nimo n+1 vezes, no m√°ximo m vezes;
+
+√Çncoras:
+\b - world boundary, antes ou depois do \b n√£o pode ter um word char
+\B - non-world boundady, antes ou depois do \B deve ter um word char
+^ - inicia com
+$ - finaliza com
+
+--------------------------------------------------
+
+Exemplos:
 CPF: \d\d\d\.\d\d\d\.\d\d-\d\d
 CPF using quantifiers: \d{3}\.\d{3}\.\d{3}-\d{2}
 CPF optional separators: \d{3}\.?\d{3}\.?\d{3}-?\d{2}
@@ -22,16 +47,9 @@ Hora: \d{2}h\d{2}min\d{2}s
 Placa: [A-Z]{3}-\d{4}
 
 15 de Outubro de 2016
-Data: [1-3]?\d\s+de\s+[A-Z][a-zÁ]{3,8}\s+de\s+[12]\d{3}
+Data: [1-3]?\d\s+de\s+[A-Z][a-z√ß]{3,8}\s+de\s+[12]\d{3}
 
-Classes:
-\s significa whitespace e È um atalho para [ \t\r\n\f].
-\w significa word char e È uma atalho para [A-Za-z0-9_].
+somente a palavra de:
+\bde\b
 
-Quantifiers:
-? - zero ou uma vez;
-* - zero ou mais vezes;
-+ - uma ou mais vezes;
-{n} - exatamente n vezes;
-{n,} - no mÌnimo n vezes;
-{n,m} - no mÌnimo n+1 vezes, no m·ximo m vezes;
+Url de arquivo file://Users/.../index.html: ^file.+\.html$
